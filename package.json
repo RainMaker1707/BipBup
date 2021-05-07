@@ -1,0 +1,22 @@
+{
+  "name": "bipbup",
+  "version": "1.0.0",
+  "description": "bot for Aatchouuuum's discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RainMaker1707/BipBup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RainMaker1707/BipBup/issues"
+  },
+  "homepage": "https://github.com/RainMaker1707/BipBup#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
