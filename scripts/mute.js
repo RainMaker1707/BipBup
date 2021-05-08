@@ -22,14 +22,14 @@ module.exports = {
                     }
                     if(Number.isInteger(timeOut)) message.channel.send("est maintenant mute pour une duré de "
                         +timeOut+" minutes").catch();
-                    else message.channel.send(message.author.toString() + " est maintenant mute pour une duré de "
+                    else message.channel.send("<@!"+message.mentions.members.first() + "> est maintenant mute pour une duré de "
                         +Math.trunc(timeOut)+"min "+Math.round((timeOut%1)*60)+"sec").catch();
                     sleep(timeOut * 60000).then(() => {
                         message.mentions.members.first().roles.remove(
                             message.guild.roles.cache.find(role => role.name === "muted")
                         ).catch().then(() => {
-                            message.channel.send(message.author.toString() +
-                                " Tu es maintenant unmute, essaie d'être plus calme a l'avenir").catch();
+                            message.channel.send("<@!"+message.mentions.members.first() +
+                                "> Tu es maintenant unmute, essaie d'être plus calme a l'avenir").catch();
                         });
                     })
                 });
