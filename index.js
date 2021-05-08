@@ -5,6 +5,8 @@ let prefix = '.';
 
 //let tools = require('./scripts/tools');
 let mute = require('./scripts/mute').mute;
+let kick = require('./scripts/kick');
+let unmute = require('./scripts/unmute');
 
 bot.on("message", (message)=>{
     if(!message.guild || message.author.bot || !message.content.startsWith(prefix)) return;
@@ -15,6 +17,9 @@ bot.on("message", (message)=>{
             break;
         case "mute":
             mute(message);
+            break;
+        case "unmute":
+            unmute(message);
             break;
         case "ping":
             message.channel.send(`Pong! You had a ping of ${Date.now() - message.createdTimestamp}ms.`).catch();

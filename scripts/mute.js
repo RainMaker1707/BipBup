@@ -3,6 +3,7 @@ let sleep = tools.sleep;
 let parseMessage = tools.parseMessage;
 let checkPerm = tools.checkPerm;
 
+// cmd .mute <time> <tag>
 module.exports = {
     mute: (message)=>{
         if(!checkPerm(message, "KICK_MEMBERS")) {
@@ -22,7 +23,8 @@ module.exports = {
                     }
                     if(Number.isInteger(timeOut)) message.channel.send("est maintenant mute pour une duré de "
                         +timeOut+" minutes").catch();
-                    else message.channel.send("<@!"+message.mentions.members.first() + "> est maintenant mute pour une duré de "
+                    else message.channel.send("<@!"+message.mentions.members.first()
+                        + "> est maintenant mute pour une duré de "
                         +Math.trunc(timeOut)+"min "+Math.round((timeOut%1)*60)+"sec").catch();
                     sleep(timeOut * 60000).then(() => {
                         message.mentions.members.first().roles.remove(
