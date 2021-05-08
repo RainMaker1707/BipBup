@@ -26,11 +26,13 @@ module.exports = {
                     else message.channel.send("<@!" + nameTag + "> est maintenant mute pour une duré de "
                         +Math.trunc(timeOut)+"min "+Math.round((timeOut%1)*60)+"sec").catch();
                     sleep(timeOut * 60000).then(() => {
-                        nameTag.roles.remove(message.guild.roles.cache.find(role => role.name === "muted")
-                        ).catch().then(() => {
-                            message.channel.send("<@!"+ nameTag +
-                                "> Tu es maintenant unmute, essaie d'être plus calme a l'avenir").catch();
-                        });
+                        if(nameTag.roles.cache.some((role) => role.name === 'muted')) {
+                            nameTag.roles.remove(message.guild.roles.cache.find(role => role.name === "muted")
+                            ).catch().then(() => {
+                                message.channel.send("<@!" + nameTag +
+                                    "> Tu es maintenant unmute, essaie d'être plus calme a l'avenir").catch();
+                            });
+                        }
                     })
                 });
             } else {
