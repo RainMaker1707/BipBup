@@ -17,7 +17,7 @@ module.exports = (message) =>{
                             () => {
                                 if (message.client.channels.cache.find((chan) => chan.name === "bot_logs")) {
                                     message.client.channels.cache.find((channel) => channel.name === 'bot_logs').send(
-                                        "<@!" + message.author + "> a soufflé dehors <@!" + nameTag + "> pour la raison [ " + reason +
+                                        "<@!" + message.author + "> a soufflé dehors <@!" + victim + "> pour la raison [ " + reason +
                                         " ] à " + new Date().toISOString()
                                     );
                                 }
