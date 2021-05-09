@@ -4,6 +4,7 @@ let bot = new DS.Client();
 let prefix = CFG.PREFIX;
 
 //let tools = require('./scripts/tools');
+let clear = require('./scripts/clear');
 let mute = require('./scripts/mute').mute;
 let unmute = require('./scripts/unmute');
 let kick = require('./scripts/kick');
@@ -28,6 +29,9 @@ bot.on("message", (message)=>{
             break;
         case "ban":
             ban(message);
+            break;
+        case "clear":
+            clear(message);
             break;
         /*case "bantmp":
             bantmp(message);
