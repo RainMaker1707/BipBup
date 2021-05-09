@@ -7,7 +7,7 @@ let prefix = CFG.PREFIX;
 let mute = require('./scripts/mute').mute;
 let unmute = require('./scripts/unmute');
 let kick = require('./scripts/kick');
-//let ban = require('./scripts/ban');
+let ban = require('./scripts/ban');
 //let bantmp = require('./scripts/bantmp');
 
 bot.on("message", (message)=>{
