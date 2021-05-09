@@ -11,7 +11,6 @@ let kick = require('./scripts/kick');
 //let bantmp = require('./scripts/bantmp');
 
 bot.on("message", (message)=>{
-
     if(!message.guild || message.author.bot || !message.content.startsWith(prefix)) return;
     let command = message.content.slice(prefix.length).split(' ').shift().toLowerCase();
     switch(command){
@@ -27,17 +26,20 @@ bot.on("message", (message)=>{
         case "kick":
             kick(message);
             break;
-        /*case "ban":
+        case "ban":
             ban(message);
             break;
-        case "bantmp":
+        /*case "bantmp":
             bantmp(message);
+            break;
+         case "unban":
+            unban(message)
             break;*/
         case "ping":
             message.channel.send(`Pong! You had a ping of ${Date.now() - message.createdTimestamp}ms.`).catch();
             break;
         default:
-            message.channel.send("Je suis désolé mais j'ai du éternué pendant que je lisais, " +
+            message.channel.send("Je suis désolé mais j'ai du éternuer pendant que je lisais, " +
                 "pouvez vous répéter (error cmd not recognized)").catch();
             break;
     }
