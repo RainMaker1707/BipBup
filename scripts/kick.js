@@ -8,7 +8,8 @@ module.exports = (message) =>{
             if(nameTag.kickable){
                 let reason = message.content.slice(CFG.PREFIX.length).trim()
                             .split('[').slice(1)[0];
-                if(reason.charAt(reason.length -1) === ']') reason = reason.slice(0, -1);
+                console.log(reason);
+                if(reason && reason.charAt(reason.length -1) === ']') reason = reason.slice(0, -1);
                 nameTag.kick(reason).catch().then(()=> {
                     if(message.client.channels.cache.find((chan) => chan.name === "bot_logs")) {
                         message.client.channels.cache.find((channel) => channel.name === 'bot_logs').send(
