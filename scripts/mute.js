@@ -18,7 +18,8 @@ module.exports = {
                 }).then(() => {
                     let timeOut = parseMessage(message);
                     if(!timeOut || isNaN(timeOut) ) {
-                        message.channel.send("Il manque le temps de mute dans cette commande").catch();
+                        message.channel.send("<@!" + nameTag + "> est maintenant mute pour " +
+                            "une durée indeterminée").catch();
                         return;
                     }
                     if(Number.isInteger(timeOut)) message.channel.send("est maintenant mute pour une duré de "
