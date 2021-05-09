@@ -7,14 +7,16 @@ module.exports = (message) =>{
         if(nameTag){
             if(nameTag.kickable){
                 let reason = message.content.slice(CFG.PREFIX.length).trim()
-                            .split('[').slice(1)[0];
+                            .split(' ');
+                reason.shift();
+                reason.shift();
+                reason = reason.join(' ').trim();
                 console.log(reason);
-                if(reason && reason.charAt(reason.length -1) === ']') reason = reason.slice(0, -1);
                 nameTag.kick(reason).catch().then(()=> {
                     if(message.client.channels.cache.find((chan) => chan.name === "bot_logs")) {
                         message.client.channels.cache.find((channel) => channel.name === 'bot_logs').send(
-                           "<@!"+ message.author + "> a soufflé dehors <@!" + nameTag + "> pour la raison [" + reason +
-                            "] à " + new Date().toISOString()
+                           "<@!"+ message.author + "> a soufflé dehors <@!" + nameTag + "> pour la raison [ " + reason +
+                            " ] à " + new Date().toISOString()
                         );
                     }
                 });
