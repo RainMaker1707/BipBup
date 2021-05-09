@@ -1,14 +1,17 @@
 const DS = require('discord.js');
 const CFG = require('./config/config.json');
 let bot = new DS.Client();
-let prefix = '.';
+let prefix = CFG.PREFIX;
 
 //let tools = require('./scripts/tools');
 let mute = require('./scripts/mute').mute;
-let kick = require('./scripts/kick');
 let unmute = require('./scripts/unmute');
+let kick = require('./scripts/kick');
+//let ban = require('./scripts/ban');
+//let bantmp = require('./scripts/bantmp');
 
 bot.on("message", (message)=>{
+
     if(!message.guild || message.author.bot || !message.content.startsWith(prefix)) return;
     let command = message.content.slice(prefix.length).split(' ').shift().toLowerCase();
     switch(command){
@@ -21,6 +24,15 @@ bot.on("message", (message)=>{
         case "unmute":
             unmute(message);
             break;
+        case "kick":
+            kick(message);
+            break;
+        /*case "ban":
+            ban(message);
+            break;
+        case "bantmp":
+            bantmp(message);
+            break;*/
         case "ping":
             message.channel.send(`Pong! You had a ping of ${Date.now() - message.createdTimestamp}ms.`).catch();
             break;
