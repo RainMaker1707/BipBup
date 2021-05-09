@@ -13,7 +13,7 @@ module.exports = (message)=>{
       if(!cnt[0]) {
           clear(25).catch();
       }else if (Number(cnt[0]) <= 100) {
-          clear(Number(cnt[0])).catch((e)=>tools.answer(message, 'error ${e}'));
+          clear(Number(cnt[0])).catch((e)=>tools.answer(message, 'error '+e));
       } else tools.answer(message, "Vous pouvez supprimez 100 messages maximum");
   }else tools.answer(message, "Vous n'avez pas la permission de supprimer des messages");
 };
