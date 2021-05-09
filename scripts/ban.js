@@ -1,4 +1,5 @@
 let tools = require('./tools');
+let CFG = require('../config/config');
 
 module.exports = (message) =>{
     if(tools.checkPerm(message, "BAN_MEMBERS")){
