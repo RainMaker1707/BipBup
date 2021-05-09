@@ -24,7 +24,7 @@ module.exports = (message) =>{
                         );
                     } else tools.answer(message, "Vous devez justifiez vos actions")
                 }else tools.answer(message, "Vous ne pouvez pas bannir d'autres modérateurs")
-            }else tools.answer("Apparemment vous ne pouvez pas touchez les dieux")
+            }else tools.answer(message, "Apparemment vous ne pouvez pas touchez les dieux")
         }else tools.answer(message, "Vous devez mentionnez quelqu'un")
     }else tools.answer(message, "Il faudra éternuer plus fort pour déraciner cet vieille branche")
 };
