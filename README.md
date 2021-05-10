@@ -6,11 +6,11 @@ It's using NPM, ensure to had already install it and use node V12 at least, then
 
 - discord.js
 
-##Commands
+## Commands
 - help (not done)
 - alive: juste answer with a message
 - ping: answer with a message contening ping between user's client and server
-- mute: (.mute [<int/float>] <nameTag>) mute the user tagged in nameTag for time specified in optional arg, if no time specified muted for undefined time
+- mute: (.mute [<int/float>] <nameTag>) mute the user tagged in nameTag for time specified in optional arg, if no specified muted for undefined time
 - unmute: (.unmute <nameTag>) force the unmute of the user tagged
 - kick: (.kick <nameTag> <string: reason> for exemple .kick @user this is a reason) kick the user specified and log the action in bot_logs channel
 - ban: (.ban <nameTag> <string:reason>) ban the user specified and log the action in bot_logs channel
