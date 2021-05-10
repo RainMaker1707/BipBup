@@ -2,6 +2,15 @@
 Bot for Aatchouuum's discord server
 
 ## Init
-It's using NPM, ensure to had already install it, then clone the repo execute `npm init`, and install these modules.
+It's using NPM, ensure to had already install it and use node V12 at least, then clone the repo and execute `npm init`, then install these modules.
 
-- discord
+- discord.js
+
+##Commands
+- help (not done)
+- alive: juste answer with a message
+- ping: answer with a message contening ping between user's client and server
+- mute: (.mute [<int/float>] <nameTag>) mute the user tagged in nameTag for time specified in optional arg, if no time specified muted for undefined time
+- unmute: (.unmute <nameTag>) force the unmute of the user tagged
+- kick: (.kick <nameTag> <string: reason> for exemple .kick @user this is a reason) kick the user specified and log the action in bot_logs channel
+- ban: (.ban <nameTag> <string:reason>) ban the user specified and log the action in bot_logs channel
