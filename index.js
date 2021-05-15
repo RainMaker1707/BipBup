@@ -34,14 +34,10 @@ bot.on("message", (message)=>{
             clear(message);
             break;
         case "chonteux":
-            message.channel.send("", {files:
-                    ["https://media1.tenor.com/images/4bdd1080e5f480864531f6f1bde9e292/tenor.gif?itemid=14793622"]})
-                .catch();
+            message.channel.send("", {files: ["./img/chonteux.gif"]}).catch();
             break;
         case "okay":
-            message.channel.send("", {files:
-                    ["https://media1.tenor.com/images/fa26f66a480a0999d0b171edf106b1ec/tenor.gif?itemid=12031252"]})
-                .catch();
+            message.channel.send("", {files: ["./img/okay.gif"]}).catch();
             break;
         /*case "bantmp":
             bantmp(message);
