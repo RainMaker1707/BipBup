@@ -33,6 +33,11 @@ bot.on("message", (message)=>{
         case "clear":
             clear(message);
             break;
+        case "chonteux":
+            message.channel.send("", {files:
+                    ["https://media1.tenor.com/images/4bdd1080e5f480864531f6f1bde9e292/tenor.gif?itemid=14793622"]})
+                .catch();
+            break;
         /*case "bantmp":
             bantmp(message);
             break;
