@@ -1,6 +1,6 @@
 const DS = require('discord.js');
 const CFG = require('./config/config.json');
-let bot = new DS.Client();
+let bot = new DS.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION']});
 let prefix = CFG.PREFIX;
 
 //let tools = require('./scripts/tools');
@@ -10,6 +10,30 @@ let unmute = require('./scripts/unmute');
 let kick = require('./scripts/kick');
 let ban = require('./scripts/ban');
 //let bantmp = require('./scripts/bantmp');
+bot.on("messageReactionAdd", async (reaction, user)=>{
+    if(reaction.partial){
+        try{ await reaction.fetch()}
+        catch{console.log("error"); return;} //change this error later TODO
+    }
+    let L = [reaction.message.id, reaction.emoji.name];
+    if(L[0] === '856133317350653973' && L[1] === "☑️") {
+        reaction.message.guild.members.cache.find(member => member.id === user.id).roles.add(
+            reaction.message.guild.roles.cache.find(role => role.name === "member"))
+            .catch((err)=>console.log(err));
+    }
+    console.log(user.username, ": accepted the rules");
+});
+
+bot.on("messageReactionRemove", async (reaction, user)=>{
+    if(reaction.partial) try{await reaction.fetch()} catch{console.log("error"); return;}
+    let L = [reaction.message.id];
+    if(L[0] === '856133317350653973') {
+        reaction.message.guild.members.cache.find(member => member.id === user.id).roles.remove(
+            reaction.message.guild.roles.cache.find(role => role.name === "member"))
+            .catch((err)=>console.log(err));
+    }
+    console.log(user.username, ": removed acceptation from the rules");
+});
 
 bot.on("message", (message)=>{
     if(!message.guild || message.author.bot || !message.content.startsWith(prefix)) return;
@@ -54,7 +78,9 @@ bot.on("message", (message)=>{
             break;
     }
 });
+
 bot.on("ready", ()=>{
     console.log("BipBup is now ready.")
+
 });
 bot.login(CFG.BOT_TOKEN).then(()=>{console.log("... connected")});
