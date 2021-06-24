@@ -16,6 +16,7 @@ bot.on("messageReactionAdd", async (reaction, user)=>{
         catch{console.log("error"); return;} //change this error later TODO
     }
     let L = [reaction.message.id, reaction.emoji.name];
+    console.log(L[0]);
     if(L[0] === '856133317350653973' && L[1] === "☑️") {
         reaction.message.guild.members.cache.find(member => member.id === user.id).roles.add(
             reaction.message.guild.roles.cache.find(role => role.name === "member"))
