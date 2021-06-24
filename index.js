@@ -17,7 +17,7 @@ bot.on("messageReactionAdd", async (reaction, user)=>{
     }
     let L = [reaction.message.id, reaction.emoji.name];
     console.log(L[0]);
-    if(L[0] === '856133317350653973' && L[1] === "☑️") {
+    if((L[0] === '856133317350653973' || L[0] === '818891754392125520') && L[1] === "☑️") {
         reaction.message.guild.members.cache.find(member => member.id === user.id).roles.add(
             reaction.message.guild.roles.cache.find(role => role.name === "member"))
             .catch((err)=>console.log(err))
@@ -28,7 +28,7 @@ bot.on("messageReactionAdd", async (reaction, user)=>{
 bot.on("messageReactionRemove", async (reaction, user)=>{
     if(reaction.partial) try{await reaction.fetch()} catch{console.log("error"); return;}
     let L = [reaction.message.id];
-    if(L[0] === '856133317350653973') {
+    if(L[0] === '856133317350653973' || L[0] === '818891754392125520') {
         reaction.message.guild.members.cache.find(member => member.id === user.id).roles.remove(
             reaction.message.guild.roles.cache.find(role => role.name === "member"))
             .catch((err)=>console.log(err))
