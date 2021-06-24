@@ -19,9 +19,9 @@ bot.on("messageReactionAdd", async (reaction, user)=>{
     if(L[0] === '856133317350653973' && L[1] === "☑️") {
         reaction.message.guild.members.cache.find(member => member.id === user.id).roles.add(
             reaction.message.guild.roles.cache.find(role => role.name === "member"))
-            .catch((err)=>console.log(err));
+            .catch((err)=>console.log(err))
+            .then(()=>console.log(user.username, ": accepted the rules"));
     }
-    console.log(user.username, ": accepted the rules");
 });
 
 bot.on("messageReactionRemove", async (reaction, user)=>{
@@ -30,9 +30,10 @@ bot.on("messageReactionRemove", async (reaction, user)=>{
     if(L[0] === '856133317350653973') {
         reaction.message.guild.members.cache.find(member => member.id === user.id).roles.remove(
             reaction.message.guild.roles.cache.find(role => role.name === "member"))
-            .catch((err)=>console.log(err));
+            .catch((err)=>console.log(err))
+            .then(()=>console.log(user.username, ": removed acceptation from the rules"));
     }
-    console.log(user.username, ": removed acceptation from the rules");
+
 });
 
 bot.on("message", (message)=>{
